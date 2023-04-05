@@ -1,0 +1,41 @@
+package basic;
+/*1)Test the Thread here 
+*/
+import java.util.HashSet;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.LinkedHashSet;
+
+public class javamain extends Thread{
+		public void run() {
+			for(int i=1;i<20;i++) {
+				System.out.print(i+" ");
+			}
+		}
+	 
+    public static void main(String args[]) {
+    	javamain t1=new javamain();
+    	//t1.run();// When we call the output will come true
+    	//t1.start();// 2 times call then it leads to exception java.lang.illegalThreadStateException.
+    	t1.start();System.out.println();// After call the start the thread gives the wrong output
+    	t1.run();System.out.println();
+    	t1.run();System.out.println();
+    	t1.run();System.out.println();
+    	System.out.println();
+    	//t1.run();
+    	for(int i=1;i<20;i++) {
+			System.out.print("pkkk ");
+		}
+    	
+    }
+}
+
+/*Output:
+	
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 1 2 3 4 5 6 7 8 19 
+1 2 3 4 5 6 7 8 9 10 11 12 13 9 10 11 12 13 14 15 16 17 18 19 14 15 16 17 18 19 
+
+pkkk pkkk pkkk pkkk pkkk pkkk pkkk pkkk pkkk pkkk pkkk pkkk pkkk pkkk pkkk pkkk pkkk pkkk pkkk 
+*/
