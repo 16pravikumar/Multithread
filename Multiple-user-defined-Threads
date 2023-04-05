@@ -1,0 +1,96 @@
+package basic;
+/* create Multiple user-defined Threads in Java Stack Area
+*/
+
+
+class AddThread extends Thread
+{
+    int sum = 0;
+    public void run ()
+    {
+        for (int i = 0; i <= 50; i++)
+        {
+            sum += i;
+            System.out.println ("the summation :" + sum);
+        }
+    }
+}
+class SubThread extends Thread
+{
+    int diff = 0;
+    public void run ()
+    {
+        for (int i = 50; i >= 50; i--)
+        {
+            diff -= i;
+            System.out.println ("the substraction is :" + diff);
+        }
+    }
+}
+public class javamain
+{
+    public static void main (String args[])
+    {
+        AddThread add = new AddThread ();
+        add.start ();
+        SubThread sub = new SubThread ();
+        sub.start ();
+        System.out.println ("main exited");
+    }
+}
+
+/*Output:
+	main exited
+the summation :0
+the substraction is :-50
+the summation :1
+the summation :3
+the summation :6
+the summation :10
+the summation :15
+the summation :21
+the summation :28
+the summation :36
+the summation :45
+the summation :55
+the summation :66
+the summation :78
+the summation :91
+the summation :105
+the summation :120
+the summation :136
+the summation :153
+the summation :171
+the summation :190
+the summation :210
+the summation :231
+the summation :253
+the summation :276
+the summation :300
+the summation :325
+the summation :351
+the summation :378
+the summation :406
+the summation :435
+the summation :465
+the summation :496
+the summation :528
+the summation :561
+the summation :595
+the summation :630
+the summation :666
+the summation :703
+the summation :741
+the summation :780
+the summation :820
+the summation :861
+the summation :903
+the summation :946
+the summation :990
+the summation :1035
+the summation :1081
+the summation :1128
+the summation :1176
+the summation :1225
+the summation :1275
+*/
