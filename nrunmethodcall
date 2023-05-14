@@ -1,0 +1,21 @@
+public class Main implements Runnable {
+
+    public void run() {
+       System.out.print("Thread 2 Called");
+    }
+
+    public static void main(String args[]) {
+        Thread t1 = new Thread(new Runnable() {
+            public void run() {
+               System.out.println("Thread 1 Called");
+            }
+        });
+        Thread t2=new Thread(new Main());
+        t1.start();
+         t2.start();
+    }
+}
+/*
+Thread 1 Called
+Thread 2 Called
+*/
